@@ -7,7 +7,8 @@ Wrote it for fun and to easily backup my database files to an OpenStack ObjectSt
 
 Usage:
 
-	godbtoswift -s=/backups/daily/ -t=mydbname
+	godbtoswift -s=/backups/daily/ -t=mydbname -c=/path/to/config.json
 
 	-s=/backups/daily/ -- Place where the application can find the backups
 	-t=mydbname -- Directory it will place the files in, at your ObjectStore
+	-c=/path/to/config.json -- Location of config file
