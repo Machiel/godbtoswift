@@ -14,9 +14,10 @@ import (
 )
 
 var (
-	conn      swift.Connection
-	sourceDir = flag.String("s", "", "Directory where we can find the files that need to be send to swift")
-	targetDir = flag.String("t", "", "Target directory in container where we will store the files")
+	conn       swift.Connection
+	sourceDir  = flag.String("s", "", "Directory where we can find the files that need to be send to swift")
+	targetDir  = flag.String("t", "", "Target directory in container where we will store the files")
+	configFile = flag.String("c", "", "Location of configuration file")
 )
 
 type connectionInfo struct {
@@ -28,7 +29,7 @@ type connectionInfo struct {
 }
 
 func loadConfig() connectionInfo {
-	configJSON, err := ioutil.ReadFile("config.json")
+	configJSON, err := ioutil.ReadFile(*configFile)
 
 	if err != nil {
 		log.Fatal(err)
